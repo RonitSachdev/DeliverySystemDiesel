@@ -2,7 +2,7 @@ package com.example.petroldelivery;
 
 public class Users {
     String userName;
-
+    String userID;
     String userOrgName;
     String userOrgAdd;
     String userPhone;
@@ -12,9 +12,9 @@ public class Users {
 
     }
 
-    public Users(String userName, String userOrgName, String userOrgAdd, String userPhone, String userQuantity) {
+    public Users(String userName, String userID, String userOrgName, String userOrgAdd, String userPhone, String userQuantity) {
         this.userName = userName;
-
+        this.userID = userID;
         this.userOrgName = userOrgName;
         this.userOrgAdd = userOrgAdd;
         this.userPhone = userPhone;
@@ -25,7 +25,7 @@ public class Users {
         return userName;
     }
 
-
+    public String getUserID(){ return  userID; }
 
     public String getUserOrgName() {
         return userOrgName;

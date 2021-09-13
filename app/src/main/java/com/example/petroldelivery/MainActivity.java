@@ -1,6 +1,9 @@
 package com.example.petroldelivery;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -46,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 addUser();
+                Intent intent = new Intent(getApplicationContext(),AfterOrder.class);
+                startActivity(intent);
             }
         });
 
@@ -53,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
     }
     private void addUser(){
         name = nameInput.getText().toString();
-
         oName = organizationName.getText().toString();
         address = organizationAddress.getText().toString();
         pNumber =phoneNumber.getText().toString();
@@ -61,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
         if(!TextUtils.isEmpty(name)){
            String id = databaseUsers.push().getKey();
-            Users user = new Users(name,oName,address,pNumber,q);
+            Users user = new Users(name,id,oName,address,pNumber,q);
             databaseUsers.child(id).setValue(user);
             Toast.makeText(this,"Sent to Us. We Will get back to you in a moment!",Toast.LENGTH_LONG).show();
         }
@@ -71,5 +75,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+
 
 }
